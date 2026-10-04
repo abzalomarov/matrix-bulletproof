@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#000000" />
+  <title>Matrix Bulletproof</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script type="importmap">
+    { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
+  </script>
+</head>
+<body>
+  <canvas id="rain"></canvas>
+  <canvas id="game"></canvas>
+  <div id="flash"></div>
+  <div id="bullet-time"></div>
+
+  <!-- HUD -->
+  <div id="hud" hidden>
+    <div class="hud-row">
+      <div id="hud-level">LEVEL 1</div>
+      <div id="hud-lives"></div>
+      <div class="hud-powers">
+        <div id="hud-dodge" title="Bullet-time dodges left"></div>
+        <div id="hud-stop" title="STOP moves left"></div>
+      </div>
+      <div class="hud-btns">
+        <button id="btn-mute" class="icon-btn" aria-label="Toggle sound">♪</button>
+        <button id="btn-pause" class="icon-btn" aria-label="Pause">II</button>
+      </div>
+    </div>
+    <div id="timer"><div id="timer-fill"></div></div>
+  </div>
+
+  <!-- Virtual joystick -->
+  <div id="joystick" hidden>
+    <div id="joy-base"><div id="joy-thumb"></div></div>
+  </div>
+
+  <!-- Mobile dodge button -->
+  <button id="btn-dodge" hidden>DODGE<span id="dodge-count">2</span></button>
+  <button id="btn-stop" hidden>✋<span>STOP</span></button>
+
+  <!-- Menu -->
+  <div id="menu" class="overlay">
+    <h1 class="glitch">MATRIX<br/><span>BULLETPROOF</span></h1>
+    <p class="subtitle">Dodge the Agents' bullets. Survive the timer. Become The One.</p>
+    <button id="btn-play" class="btn">PLAY</button>
+    <h3>SELECT LEVEL</h3>
+    <div id="level-grid"></div>
+    <div class="menu-row">
+      <span class="row-label">SCENE</span>
+      <div id="scene-select"></div>
+      <button id="btn-music" class="btn btn-ghost btn-small">SOUND: ON</button>
+    </div>
+    <p class="hint" id="controls-hint"></p>
+  </div>
+
+  <!-- Level complete -->
+  <div id="complete" class="overlay" hidden>
+    <h2>LEVEL <span id="complete-level">1</span> CLEARED</h2>
+    <p class="subtitle">"There is no spoon."</p>
+    <button id="btn-next" class="btn">NEXT LEVEL</button>
+    <button class="btn btn-ghost btn-menu">MENU</button>
+  </div>
+
+  <!-- Game over -->
+  <div id="gameover" class="overlay" hidden>
+    <h2 class="red">YOU'VE BEEN HIT</h2>
+    <p class="subtitle">"Stop trying to dodge them... and dodge them."</p>
+    <button id="btn-retry" class="btn">RETRY LEVEL</button>
+    <button class="btn btn-ghost btn-menu">MENU</button>
+  </div>
+
+  <!-- Paused -->
+  <div id="paused" class="overlay" hidden>
+    <h2>PAUSED</h2>
+    <button id="btn-resume" class="btn">RESUME</button>
+    <button class="btn btn-ghost btn-menu">MENU</button>
+  </div>
+
+  <!-- Win -->
+  <div id="win" class="overlay" hidden>
+    <h1 class="glitch">YOU ARE<br/><span>THE ONE</span></h1>
+    <p class="subtitle">All 10 levels cleared. The Agents never stood a chance.</p>
+    <button class="btn btn-menu">MENU</button>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
